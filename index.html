@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abi Pandey — Senior Software Engineer</title>
+  <title>Abhishek Pandey — Senior Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
@@ -362,6 +362,110 @@
       margin: 0;
     }
 
+    /* ───────────────────────────── RESEARCH CARDS ─────────────────── */
+    .research-list { display: flex; flex-direction: column; gap: 1.2rem; }
+
+    .research-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.6rem;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.2rem 1.6rem;
+      align-items: start;
+      transition: border-color 0.2s;
+    }
+    .research-card:hover { border-color: var(--accent); }
+
+    .research-type {
+      writing-mode: vertical-rl;
+      text-orientation: mixed;
+      transform: rotate(180deg);
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding: 0.4rem 0;
+      border-right: 2px solid var(--line);
+      padding-right: 0.8rem;
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+    }
+    .research-card.paper .research-type  { color: var(--accent); border-color: var(--accent); }
+    .research-card.thesis .research-type { color: var(--warm);   border-color: var(--warm);   }
+
+    .research-venue {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-bottom: 0.4rem;
+      letter-spacing: 0.04em;
+    }
+    .research-card.paper  .research-venue { color: var(--accent); }
+    .research-card.thesis .research-venue { color: var(--warm);   }
+
+    .research-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      line-height: 1.4;
+      margin-bottom: 0.6rem;
+    }
+    .research-abstract {
+      font-size: 0.875rem;
+      color: #8b949e;
+      line-height: 1.65;
+      margin-bottom: 1rem;
+    }
+    .research-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+      margin-bottom: 0.9rem;
+    }
+    .research-author {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+    }
+    .research-links {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+    .res-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 5px;
+      font-size: 0.78rem;
+      font-family: var(--mono);
+      letter-spacing: 0.03em;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .res-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+    .res-btn.primary { background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.4); color: var(--accent); }
+    .res-btn.primary:hover { background: rgba(88,166,255,0.15); }
+
+    .research-stats {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      margin-top: 0.8rem;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--line);
+    }
+    .stat-item { display: flex; flex-direction: column; gap: 0.1rem; }
+    .stat-val  { font-family: var(--mono); font-size: 0.9rem; font-weight: 500; color: var(--accent2); }
+    .stat-label { font-size: 0.72rem; color: var(--muted); }
+
     /* ───────────────────────────── HOBBIES / OUTSIDE ──────────────── */
     .hobby-grid {
       display: grid;
@@ -483,6 +587,7 @@
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#outside">Outside</a></li>
     </ul>
@@ -494,8 +599,8 @@
   <!-- HERO -->
   <div class="hero" id="about">
     <div class="hero-text">
-      <p class="hero-eyebrow">Senior Software Engineer · Cork, Ireland</p>
-      <h1>Abi</em> Pandey</h1>
+      <p class="hero-eyebrow">Senior Software Engineer · Limerick, Ireland</p>
+      <h1>Abhishek<br><em>"Abi"</em> Pandey</h1>
       <p class="hero-tagline">
         I build distributed systems that move fast and don't break things —
         event-driven architectures, real-time pipelines, and AI-integrated backends
@@ -528,7 +633,8 @@
 
     <div class="hero-photo">
       <!-- Replace src with your actual photo path -->
-      <img src="profile.jpeg" alt="Abhishek Pandey" />
+      <!-- <img src="profile.jpg" alt="Abhishek Pandey" /> -->
+      <div class="photo-placeholder">profile.jpg<br/>replace me</div>
     </div>
   </div>
 
@@ -668,6 +774,191 @@
     </div>
   </section>
 
+
+  <!-- RESEARCH & PUBLICATIONS -->
+  <section id="research">
+    <p class="section-label">// research &amp; publications</p>
+    <h2>Research &amp; Publications</h2>
+
+    <div class="research-list">
+
+      <!-- IMC41 PAPER -->
+      <div class="research-card paper">
+        <div class="research-type">Conference Paper</div>
+        <div class="research-body">
+          <p class="research-venue">IMC41 — 41st International Manufacturing Conference &middot; 2024</p>
+          <div class="research-title">
+            Real-Time Object Detection and Pose Estimation for Wiring Configurations
+            on Qualcomm RB3 Gen2 in Industry 4.0 Applications
+          </div>
+          <div class="research-meta">
+            <span class="research-author">Abhishek Pandey</span>
+            <span class="pill" style="font-size:0.68rem;">University of Limerick</span>
+          </div>
+          <p class="research-abstract">
+            Presents a two-stage embedded AI system for automated visual inspection of daisy chain
+            wiring assemblies in smart manufacturing. YOLOv8 performs object detection at ~36.6 FPS
+            and HRNet delivers keypoint-based pose estimation at ~31.7 FPS, both running entirely
+            on-device on the Qualcomm RB3 Gen2 Vision Kit (QCS6490) — removing cloud dependencies
+            and meeting the latency and reliability demands of Industry 4.0 production lines.
+          </p>
+          <div class="research-links">
+            <a class="res-btn primary" href="assets/imc41-paper.pdf" target="_blank">&#x2193; Download Paper</a>
+            <a class="res-btn" href="assets/imc41-slides.pptx" target="_blank">&#x29C9; Slides (PPTX)</a>
+          </div>
+          <div class="research-stats">
+            <div class="stat-item">
+              <span class="stat-val">~36.6 FPS</span>
+              <span class="stat-label">YOLOv8 Detection</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">~31.7 FPS</span>
+              <span class="stat-label">HRNet Pose Estimation</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">On-Device</span>
+              <span class="stat-label">No Cloud Dependency</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">INT8</span>
+              <span class="stat-label">Quantised Models</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MASTER'S THESIS -->
+      <div class="research-card thesis">
+        <div class="research-type">MEng Thesis</div>
+        <div class="research-body">
+          <p class="research-venue">University of Limerick &middot; MEng Computer Vision &amp; AI &middot; 2024</p>
+          <div class="research-title">
+            Multi-Camera AI Analytics System for Real-Time Pose Estimation on Edge Hardware
+          </div>
+          <div class="research-meta">
+            <span class="research-author">Abhishek Pandey</span>
+            <span class="pill" style="font-size:0.68rem;">Supervised by Dr. Ciar&#225;n Eising</span>
+          </div>
+          <p class="research-abstract">
+            Designed and deployed a distributed computer vision system coordinating multiple camera
+            feeds for real-time human pose estimation on the Qualcomm RB3 Gen2 edge platform.
+            The system combines YOLO-based detection with HRNet keypoint localisation inside a
+            GStreamer inference pipeline, demonstrating scalable edge AI architecture suitable for
+            industrial and safety-critical perception applications.
+          </p>
+          <div class="research-links">
+            <a class="res-btn primary" href="assets/masters-thesis.pdf" target="_blank">&#x2193; Download Thesis</a>
+          </div>
+          <div class="research-stats">
+            <div class="stat-item">
+              <span class="stat-val">Multi-Cam</span>
+              <span class="stat-label">Distributed Feeds</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">YOLO + HRNet</span>
+              <span class="stat-label">Two-Stage Pipeline</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val">QCS6490</span>
+              <span class="stat-label">Edge Hardware</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ASL GROUP PROJECT -->
+      <div class="research-card" style="--card-accent: #bc8cff;">
+        <div class="research-type" style="color:#bc8cff; border-color:#bc8cff;">Group Project</div>
+        <div class="research-body">
+          <p class="research-venue" style="color:#bc8cff;">EE6008 Deep Learning at the Edge &middot; University of Limerick &middot; 2025</p>
+          <div class="research-title">
+            ASL Sign Language Recognition on OpenMV using Edge Impulse
+          </div>
+          <div class="research-meta">
+            <span class="research-author">Jocelyn Murphy, Abhishek Pandey, Saransh Bhatnagar, Camille Conjat, Abhishek Reddy Mudiyala</span>
+          </div>
+          <p class="research-abstract">
+            Built a real-time American Sign Language classifier deployable entirely on the
+            OpenMV edge camera — no cloud required. The team collected a custom 26-class dataset
+            (50 images per letter across five contributors), trained a CNN on Edge Impulse, and
+            deployed a TFLite model achieving 84.7% test accuracy with per-letter inference
+            running live on-device. The project surfaces key lessons in dataset consistency,
+            embedded ML constraints, and INT8 quantisation for low-power hardware.
+          </p>
+          <div class="research-links">
+            <a class="res-btn primary" href="https://studio.edgeimpulse.com/public/682063/latest" target="_blank" style="border-color:rgba(188,140,255,0.4); color:#bc8cff; background:rgba(188,140,255,0.08);">&#x2197; Live Edge Impulse Project</a>
+            <a class="res-btn" href="assets/asl-report.pdf" target="_blank">&#x2193; Report PDF</a>
+          </div>
+          <div class="research-stats">
+            <div class="stat-item">
+              <span class="stat-val" style="color:#bc8cff;">84.7%</span>
+              <span class="stat-label">Test Accuracy</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#bc8cff;">26 Classes</span>
+              <span class="stat-label">ASL Alphabet</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#bc8cff;">On-Device</span>
+              <span class="stat-label">OpenMV Camera</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#bc8cff;">TFLite</span>
+              <span class="stat-label">INT8 Quantised</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- CV SYSTEMS PROJECT -->
+      <div class="research-card" style="--card-accent: #3fb950;">
+        <div class="research-type" style="color:#3fb950; border-color:#3fb950;">Module Project</div>
+        <div class="research-body">
+          <p class="research-venue" style="color:#3fb950;">CE6023 Computer Vision Systems &middot; University of Limerick &middot; Dec 2024</p>
+          <div class="research-title">
+            Object and People Recognition in Real-Time Using Raspberry Pi 4
+          </div>
+          <div class="research-meta">
+            <span class="research-author">Abhishek Pandey</span>
+          </div>
+          <p class="research-abstract">
+            Designed and deployed a real-time computer vision pipeline on a Raspberry Pi 4 combining
+            TensorFlow Lite for object detection and OpenCV Haar Cascade for face detection. The system
+            was stress-tested across three lighting conditions — brightly lit indoors, morning outdoors,
+            and evening outdoors — achieving 0.75&ndash;0.85 confidence in optimal lighting and logging
+            entry/exit events with timestamped inference data. Includes a modular, extensible architecture
+            with threaded video capture, CSV-based telemetry logging, and matplotlib visualisation
+            of confidence and inference-time trends over time.
+          </p>
+          <div class="research-links">
+            <a class="res-btn primary" href="assets/cv-systems-report.pdf" target="_blank" style="border-color:rgba(63,185,80,0.4); color:#3fb950; background:rgba(63,185,80,0.08);">&#x2193; Download Report</a>
+          </div>
+          <div class="research-stats">
+            <div class="stat-item">
+              <span class="stat-val" style="color:#3fb950;">0.75&ndash;0.85</span>
+              <span class="stat-label">Detection Confidence</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#3fb950;">TFLite</span>
+              <span class="stat-label">Object Detection</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#3fb950;">Raspberry Pi 4</span>
+              <span class="stat-label">Edge Hardware</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-val" style="color:#3fb950;">3 Conditions</span>
+              <span class="stat-label">Lighting Scenarios</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
   <!-- EDUCATION -->
   <section id="education">
     <p class="section-label">// academic</p>
@@ -710,30 +1001,20 @@
     <div class="hobby-grid">
 
       <div class="hobby-card">
-        <!-- Replace with your actual mountaineering photo -->
-        <img src="trekking.jpeg" alt="Mountaineering" />
-        <div class="hobby-img-placeholder">
-          <span class="icon">⛰️</span>
-          <span class="hint">trekking.jpeg</span>
-        </div>
-        <div class="hobby-label">
-          <h3>Mountaineering</h3>
-          <p>High-altitude ascents, technical terrain, and the silence above the clouds.</p>
-        </div>
-      </div>
+    <img src="trekking.jpeg" alt="Mountaineering" />
+    <div class="hobby-label">
+      <h3>Mountaineering</h3>
+      <p>High-altitude ascents, technical terrain, and the silence above the clouds.</p>
+    </div>
+  </div>
 
-      <div class="hobby-card">
-        <!-- Replace with your actual trekking photo -->
-        <img src="wildatlantinc.jpeg" alt="Trekking" />
-        <div class="hobby-img-placeholder">
-          <span class="icon">🥾</span>
-          <span class="hint">wildatlantinc.jpeg</span>
-        </div>
-        <div class="hobby-label">
-          <h3>Trekking</h3>
-          <p>Long-distance trails, wild camping, and the Irish hills closer to home.</p>
-        </div>
-      </div>
+     <div class="hobby-card">
+    <img src="wildatlantinc.jpeg" alt="Trekking" />
+    <div class="hobby-label">
+      <h3>Trekking</h3>
+      <p>Long-distance trails, wild camping, and the Irish hills closer to home.</p>
+    </div>
+  </div>
 
     </div>
   </section>

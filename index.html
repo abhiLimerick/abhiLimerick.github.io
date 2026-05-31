@@ -566,6 +566,54 @@
       .tl-date { margin-left: 0; width: 100%; }
     }
 
+    /* ───────────────────────────── SKILLS ─────────────────────────── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.2rem;
+    }
+    .skill-group {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.2rem 1.3rem;
+      transition: border-color 0.2s;
+    }
+    .skill-group:hover { border-color: var(--line); }
+    .skill-group-label {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.85rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .sg-languages  .skill-group-label { color: #f0883e; border-color: rgba(240,136,62,0.3); }
+    .sg-ai         .skill-group-label { color: #58a6ff; border-color: rgba(88,166,255,0.3); }
+    .sg-edge       .skill-group-label { color: #bc8cff; border-color: rgba(188,140,255,0.3); }
+    .sg-cv         .skill-group-label { color: #3fb950; border-color: rgba(63,185,80,0.3); }
+    .sg-backend    .skill-group-label { color: #f0883e; border-color: rgba(240,136,62,0.3); }
+    .sg-devops     .skill-group-label { color: #58a6ff; border-color: rgba(88,166,255,0.3); }
+    .sg-concepts   .skill-group-label { color: #bc8cff; border-color: rgba(188,140,255,0.3); }
+
+    .skill-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .skill-tag {
+      font-family: var(--mono);
+      font-size: 0.71rem;
+      padding: 0.2rem 0.55rem;
+      border-radius: 4px;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      color: #b1bac4;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
     /* ───────────────────────────── ANIMATIONS ─────────────────────── */
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(18px); }
@@ -586,6 +634,7 @@
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#research">Research</a></li>
       <li><a href="#education">Education</a></li>
@@ -600,7 +649,7 @@
   <div class="hero" id="about">
     <div class="hero-text">
       <p class="hero-eyebrow">Senior Software Engineer · Dublin, Ireland</p>
-      <h1>Abi</em> Pandey</h1>
+      <h1>Abi Pandey</h1>
       <p class="hero-tagline">
         I build distributed systems that move fast and don't break things —
         event-driven architectures, real-time pipelines, and AI-integrated backends
@@ -721,6 +770,100 @@
       </li>
 
     </ul>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <p class="section-label">// skills &amp; stack</p>
+    <h2>Technical Skills</h2>
+
+    <div class="skills-grid">
+
+      <div class="skill-group sg-languages">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">Java</span>
+          <span class="skill-tag">SQL</span>
+          <span class="skill-tag">Bash</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-ai">
+        <div class="skill-group-label">AI / ML Frameworks</div>
+        <div class="skill-tags">
+          <span class="skill-tag">TensorFlow</span>
+          <span class="skill-tag">TFLite</span>
+          <span class="skill-tag">Keras</span>
+          <span class="skill-tag">OpenCV</span>
+          <span class="skill-tag">YOLOv8</span>
+          <span class="skill-tag">HRNet</span>
+          <span class="skill-tag">Edge Impulse</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-cv">
+        <div class="skill-group-label">Computer Vision</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Object Detection</span>
+          <span class="skill-tag">Pose Estimation</span>
+          <span class="skill-tag">Keypoint Localisation</span>
+          <span class="skill-tag">Face Detection</span>
+          <span class="skill-tag">Image Classification</span>
+          <span class="skill-tag">CNN Design</span>
+          <span class="skill-tag">Real-Time Inference</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-edge">
+        <div class="skill-group-label">Edge AI &amp; Hardware</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Qualcomm RB3 Gen2</span>
+          <span class="skill-tag">Raspberry Pi 4</span>
+          <span class="skill-tag">OpenMV</span>
+          <span class="skill-tag">INT8 Quantisation</span>
+          <span class="skill-tag">Qualcomm NPU SDK</span>
+          <span class="skill-tag">GStreamer</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-backend">
+        <div class="skill-group-label">Backend &amp; Distributed</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Spring Boot</span>
+          <span class="skill-tag">Kafka</span>
+          <span class="skill-tag">Kubernetes</span>
+          <span class="skill-tag">AMQP</span>
+          <span class="skill-tag">Microservices</span>
+          <span class="skill-tag">REST APIs</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Docker</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-devops">
+        <div class="skill-group-label">DevOps &amp; Tooling</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">GitHub Actions</span>
+          <span class="skill-tag">Linux</span>
+          <span class="skill-tag">CI/CD</span>
+        </div>
+      </div>
+
+      <div class="skill-group sg-concepts">
+        <div class="skill-group-label">Concepts</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Event-Driven Architecture</span>
+          <span class="skill-tag">Distributed Systems</span>
+          <span class="skill-tag">Edge Inference</span>
+          <span class="skill-tag">Streaming Pipelines</span>
+          <span class="skill-tag">Observability</span>
+          <span class="skill-tag">IoT Backends</span>
+        </div>
+      </div>
+
+    </div>
   </section>
 
   <!-- PROJECTS -->
@@ -1000,20 +1143,30 @@
     <div class="hobby-grid">
 
       <div class="hobby-card">
-    <img src="trekking.jpeg" alt="Mountaineering" />
-    <div class="hobby-label">
-      <h3>Mountaineering</h3>
-      <p>High-altitude ascents, technical terrain, and the silence above the clouds.</p>
-    </div>
-  </div>
+        <!-- Replace with your actual mountaineering photo -->
+        <img src="trekking.jpeg" alt="Mountaineering" />
+        <div class="hobby-img-placeholder">
+          <span class="icon">⛰️</span>
+          <span class="hint">trekking.jpeg</span>
+        </div>
+        <div class="hobby-label">
+          <h3>Mountaineering</h3>
+          <p>High-altitude ascents, technical terrain, and the silence above the clouds.</p>
+        </div>
+      </div>
 
-     <div class="hobby-card">
-    <img src="wildatlantinc.jpeg" alt="Trekking" />
-    <div class="hobby-label">
-      <h3>Trekking</h3>
-      <p>Long-distance trails, wild camping, and the Irish hills closer to home.</p>
-    </div>
-  </div>
+      <div class="hobby-card">
+        <!-- Replace with your actual trekking photo -->
+        <img src="wildatlantinc.jpeg" alt="Trekking" />
+        <div class="hobby-img-placeholder">
+          <span class="icon">🥾</span>
+          <span class="hint">wildatlantinc.jpeg</span>
+        </div>
+        <div class="hobby-label">
+          <h3>Trekking</h3>
+          <p>Long-distance trails, wild camping, and the Irish hills closer to home.</p>
+        </div>
+      </div>
 
     </div>
   </section>

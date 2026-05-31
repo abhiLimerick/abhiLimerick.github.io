@@ -1,134 +1,752 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhishek Pandey | MSc Computer Vision & AI</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abi Pandey — Senior Software Engineer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ───────────────────────────── TOKENS ───────────────────────────── */
+    :root {
+      --bg:        #0d1117;
+      --bg2:       #161b22;
+      --bg3:       #1c2330;
+      --line:      #2a3240;
+      --text:      #e6edf3;
+      --muted:     #7d8590;
+      --accent:    #58a6ff;
+      --accent2:   #3fb950;
+      --warm:      #f0883e;
+      --serif:     'DM Serif Display', Georgia, serif;
+      --mono:      'DM Mono', 'Courier New', monospace;
+      --sans:      'DM Sans', system-ui, sans-serif;
+      --max:       860px;
+      --gap:       2.5rem;
+    }
+
+    /* ───────────────────────────── RESET ───────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ───────────────────────────── NOISE OVERLAY ───────────────────── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ───────────────────────────── NAV ────────────────────────────── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+    nav .nav-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem;
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      letter-spacing: 0.08em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--text); text-decoration: none; }
+
+    /* ───────────────────────────── LAYOUT ─────────────────────────── */
+    .page {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 1.5rem 6rem;
+    }
+
+    /* ───────────────────────────── HERO ───────────────────────────── */
+    .hero {
+      padding: 6rem 0 4rem;
+      border-bottom: 1px solid var(--line);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--serif);
+      font-size: clamp(2.4rem, 6vw, 3.6rem);
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.65;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1.1rem;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      transition: all 0.2s;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+    .btn-primary:hover { background: #79beff; text-decoration: none; }
+    .btn-ghost {
+      border: 1px solid var(--line);
+      color: var(--muted);
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
+
+    /* Profile photo */
+    .hero-photo {
+      flex-shrink: 0;
+    }
+    .hero-photo img {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      object-fit: cover;
+      border: 2px solid var(--line);
+      display: block;
+    }
+    .hero-photo .photo-placeholder {
+      width: 160px;
+      height: 160px;
+      border-radius: 12px;
+      background: var(--bg3);
+      border: 2px dashed var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* ───────────────────────────── SECTION ────────────────────────── */
+    section { padding: var(--gap) 0; border-bottom: 1px solid var(--line); }
+    section:last-of-type { border-bottom: none; }
+
+    .section-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--accent2);
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+    }
+
+    h2 {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.2rem;
+      color: var(--text);
+    }
+
+    p { color: #b1bac4; margin-bottom: 0.9rem; }
+    p:last-child { margin-bottom: 0; }
+
+    /* ───────────────────────────── STACK PILLS ────────────────────── */
+    .stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+    .pill {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 4px;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      letter-spacing: 0.04em;
+    }
+    .pill.hi { border-color: var(--accent); color: var(--accent); }
+
+    /* ───────────────────────────── EXPERIENCE TIMELINE ────────────── */
+    .timeline { list-style: none; position: relative; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 7px; top: 6px; bottom: 0;
+      width: 1px;
+      background: var(--line);
+    }
+    .tl-item {
+      padding-left: 2rem;
+      position: relative;
+      margin-bottom: 2.2rem;
+    }
+    .tl-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 7px;
+      width: 15px; height: 15px;
+      border-radius: 50%;
+      background: var(--bg);
+      border: 2px solid var(--accent);
+    }
+    .tl-item:first-child::before { background: var(--accent); }
+
+    .tl-head {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+    .tl-role {
+      font-weight: 600;
+      font-size: 0.97rem;
+      color: var(--text);
+    }
+    .tl-company {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+    }
+    .tl-date {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--muted);
+      margin-left: auto;
+    }
+    .tl-desc { color: #b1bac4; font-size: 0.93rem; }
+
+    /* ───────────────────────────── PROJECTS GRID ──────────────────── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .project-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.4rem;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .project-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+    .project-card h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+    .project-card p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin-bottom: 0;
+    }
+    .project-tag {
+      display: inline-block;
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      background: rgba(88, 166, 255, 0.1);
+      color: var(--accent);
+      border: 1px solid rgba(88, 166, 255, 0.2);
+      margin-bottom: 0.8rem;
+    }
+
+    /* ───────────────────────────── EDUCATION ──────────────────────── */
+    .edu-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+    }
+    .edu-card {
+      background: var(--bg2);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 1.4rem;
+    }
+    .edu-card .degree {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+    .edu-card .school {
+      font-family: var(--mono);
+      font-size: 0.78rem;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .edu-card p {
+      font-size: 0.87rem;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* ───────────────────────────── HOBBIES / OUTSIDE ──────────────── */
+    .hobby-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.2rem;
+      margin-top: 0.5rem;
+    }
+    .hobby-card {
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg3);
+      border: 1px solid var(--line);
+      min-height: 200px;
+    }
+    .hobby-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      position: absolute;
+      inset: 0;
+      opacity: 0.75;
+    }
+    .hobby-card .hobby-img-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .hobby-img-placeholder .icon { font-size: 2.5rem; }
+    .hobby-img-placeholder .hint {
+      font-family: var(--mono);
+      font-size: 0.68rem;
+      color: var(--muted);
+    }
+    .hobby-card .hobby-label {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 2.5rem 1.2rem 1rem;
+      background: linear-gradient(transparent, rgba(0,0,0,0.75));
+    }
+    .hobby-label h3 {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+    .hobby-label p {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.65);
+      margin: 0;
+    }
+
+    /* ───────────────────────────── FOOTER ─────────────────────────── */
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 2.5rem 1.5rem;
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--muted);
+      margin: 0;
+    }
+    footer .status {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    footer .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--accent2);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.3; }
+    }
+
+    /* ───────────────────────────── RESPONSIVE ─────────────────────── */
+    @media (max-width: 640px) {
+      .hero { grid-template-columns: 1fr; }
+      .hero-photo { order: -1; }
+      .hero-photo img, .hero-photo .photo-placeholder { width: 120px; height: 120px; }
+      .edu-grid, .hobby-grid { grid-template-columns: 1fr; }
+      .tl-date { margin-left: 0; width: 100%; }
+    }
+
+    /* ───────────────────────────── ANIMATIONS ─────────────────────── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(18px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .hero-text { animation: fadeUp 0.7s ease both; }
+    .hero-photo { animation: fadeUp 0.7s 0.15s ease both; }
+    section { animation: fadeUp 0.5s ease both; }
+  </style>
 </head>
+
 <body>
 
-<header>
-    <div class="container">
-        <h1>Abhishek Pandey</h1>
-        <p>MSc Computer Vision & Artificial Intelligence | Software Engineer</p>
-    </div>
-</header>
-
+<!-- NAV -->
 <nav>
-    <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#contact">Contact</a></li>
+  <div class="nav-inner">
+    <span class="nav-logo">abi.pandey</span>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#outside">Outside</a></li>
     </ul>
+  </div>
 </nav>
 
-<section id="about" class="container">
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero" id="about">
+    <div class="hero-text">
+      <p class="hero-eyebrow">Senior Software Engineer · Cork, Ireland</p>
+      <h1>Abi</em> Pandey</h1>
+      <p class="hero-tagline">
+        I build distributed systems that move fast and don't break things —
+        event-driven architectures, real-time pipelines, and AI-integrated backends
+        running at production scale in safety-critical environments.
+      </p>
+      <div class="hero-links">
+        <a class="btn btn-primary" href="mailto:abhishekinireland@gmail.com">
+          ✉ Get in touch
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/abhiLimerick" target="_blank">
+          ⌥ GitHub
+        </a>
+        <a class="btn btn-ghost" href="#" target="_blank">
+          ↗ LinkedIn
+        </a>
+      </div>
+      <div class="stack" style="margin-top: 1.5rem;">
+        <span class="pill hi">Java</span>
+        <span class="pill hi">Kafka</span>
+        <span class="pill hi">Kubernetes</span>
+        <span class="pill hi">AMQP</span>
+        <span class="pill">Spring Boot</span>
+        <span class="pill">Python</span>
+        <span class="pill">TensorFlow</span>
+        <span class="pill">OpenCV</span>
+        <span class="pill">MongoDB</span>
+        <span class="pill">Microservices</span>
+      </div>
+    </div>
+
+    <div class="hero-photo">
+      <!-- Replace src with your actual photo path -->
+      <img src="profile.jpeg" alt="Abhishek Pandey" />
+    </div>
+  </div>
+
+  <!-- ABOUT / INTRO -->
+  <section>
+    <p class="section-label">// background</p>
     <h2>About Me</h2>
     <p>
-        I am pursuing a Master's degree in Computer Vision and Artificial Intelligence
-        at the University of Limerick, Ireland. I have over 4 years of professional
-        software engineering experience and a strong interest in machine learning,
-        computer vision, deep learning, and intelligent systems.
+      I'm a Senior Software Engineer with over five years of experience designing
+      and shipping distributed, event-driven systems across IoT, enterprise software,
+      and safety-critical aerospace domains. I care deeply about reliability,
+      observability, and system design — writing code that the next engineer
+      (including future me) can reason about.
     </p>
-</section>
+    <p>
+      My engineering background is complemented by a Master's in Computer Vision &amp; AI
+      from the University of Limerick, where I researched real-time multi-camera
+      pose estimation on edge hardware. I enjoy bridging the gap between
+      applied machine learning research and production backend systems.
+    </p>
+    <p>
+      When I'm not at a keyboard, I'm usually at altitude — hiking, trekking, or
+      planning the next mountaineering objective. The mountains have taught me
+      more about patience, preparation, and judgment than any book.
+    </p>
+  </section>
 
-<section id="experience" class="container">
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <p class="section-label">// career</p>
     <h2>Experience</h2>
 
-    <div class="card">
-        <h3>Software Engineer</h3>
-        <p><strong>Molex</strong></p>
-        <p>
-            Developed and maintained software solutions, collaborated with
-            cross-functional engineering teams, and contributed to product
-            development and automation initiatives.
-        </p>
-    </div>
+    <ul class="timeline">
 
-    <div class="card">
-        <h3>Teaching Assistant</h3>
-        <p><strong>University of Limerick</strong></p>
-        <p>
-            Assisted students with programming and technical coursework,
-            conducted lab sessions, and provided academic support.
+      <li class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Senior Software Engineer</span>
+          <span class="tl-company">Collins Aerospace</span>
+          <span class="tl-date">2025 – Present</span>
+        </div>
+        <p class="tl-desc">
+          Building mission-critical distributed microservices for real-time aerospace
+          applications using AMQP-based messaging. Implemented observability pipelines
+          for end-to-end system visibility and designed safety-critical alerting systems
+          operating under strict latency and correctness requirements.
         </p>
-    </div>
-</section>
+        <div class="stack">
+          <span class="pill">Java</span><span class="pill">AMQP</span>
+          <span class="pill">Microservices</span><span class="pill">Observability</span>
+        </div>
+      </li>
 
-<section id="projects" class="container">
+      <li class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Software Engineer</span>
+          <span class="tl-company">Molex</span>
+          <span class="tl-date">2022 – 2025</span>
+        </div>
+        <p class="tl-desc">
+          Developed scalable IoT backend systems processing high-throughput sensor
+          data. Designed Kafka-based streaming pipelines and containerised
+          Spring Boot services deployed on Kubernetes, serving global manufacturing customers.
+        </p>
+        <div class="stack">
+          <span class="pill">Java</span><span class="pill">Spring Boot</span>
+          <span class="pill">Kafka</span><span class="pill">Kubernetes</span><span class="pill">IoT</span>
+        </div>
+      </li>
+
+      <li class="tl-item">
+        <div class="tl-head">
+          <span class="tl-role">Software Engineer</span>
+          <span class="tl-company">LTIMindtree</span>
+          <span class="tl-date">2019 – 2022</span>
+        </div>
+        <p class="tl-desc">
+          Built enterprise microservices and workflow automation systems for large-scale
+          clients. Delivered REST APIs, data processing pipelines, and document management
+          workflows using Spring Boot and MongoDB.
+        </p>
+        <div class="stack">
+          <span class="pill">Spring Boot</span><span class="pill">MongoDB</span>
+          <span class="pill">REST APIs</span><span class="pill">Microservices</span>
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">// selected work</p>
     <h2>Projects</h2>
 
-    <div class="card">
-        <h3>Face Recognition System</h3>
-        <p>
-            Developed a face recognition solution using Python and OpenCV
-            capable of identifying registered users in real time.
-        </p>
-    </div>
+    <div class="projects-grid">
 
-    <div class="card">
-        <h3>Genetic Algorithms</h3>
+      <div class="project-card">
+        <span class="project-tag">MEng Thesis</span>
+        <h3>Multi-Camera AI Analytics System</h3>
         <p>
-            Implemented optimization algorithms using evolutionary computation
-            techniques for complex search problems.
+          Distributed computer vision system using YOLO + HRNet for real-time
+          human pose estimation on Qualcomm RB3 edge hardware. Designed scalable
+          inference pipelines coordinating multiple camera feeds simultaneously.
         </p>
-    </div>
+        <div class="stack" style="margin-top: 0.9rem;">
+          <span class="pill">YOLO</span><span class="pill">HRNet</span>
+          <span class="pill">Edge AI</span><span class="pill">Python</span>
+        </div>
+      </div>
 
-    <div class="card">
-        <h3>Computer Vision Research</h3>
+      <div class="project-card">
+        <span class="project-tag">Computer Vision</span>
+        <h3>Real-Time Face Recognition</h3>
         <p>
-            Applied deep learning techniques for image analysis and visual
-            understanding tasks.
+          End-to-end face recognition pipeline built with OpenCV and TensorFlow,
+          optimised for real-time inference with minimal latency on commodity hardware.
         </p>
-    </div>
-</section>
+        <div class="stack" style="margin-top: 0.9rem;">
+          <span class="pill">OpenCV</span><span class="pill">TensorFlow</span>
+          <span class="pill">Python</span>
+        </div>
+      </div>
 
-<section id="education" class="container">
+      <div class="project-card">
+        <span class="project-tag">Deep Learning</span>
+        <h3>CNN Image Classification</h3>
+        <p>
+          Convolutional neural network models achieving &gt;90% accuracy on MNIST.
+          Explored architecture depth, regularisation strategies, and training efficiency.
+        </p>
+        <div class="stack" style="margin-top: 0.9rem;">
+          <span class="pill">TensorFlow</span><span class="pill">Keras</span>
+          <span class="pill">CNN</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <p class="section-label">// academic</p>
     <h2>Education</h2>
 
-    <div class="card">
-        <h3>Master of Engineering</h3>
-        <p>Computer Vision & Artificial Intelligence</p>
-        <p>University of Limerick, Ireland</p>
+    <div class="edu-grid">
+
+      <div class="edu-card">
+        <div class="degree">MEng — Computer Vision &amp; Artificial Intelligence</div>
+        <div class="school">University of Limerick · Ireland</div>
+        <p>
+          Research focus on real-time distributed vision systems, multi-camera pose
+          estimation, and edge AI inference. Thesis deployed on Qualcomm RB3 hardware
+          in a live multi-camera environment.
+        </p>
+      </div>
+
+      <div class="edu-card">
+        <div class="degree">BEng — Computer Science &amp; Engineering</div>
+        <div class="school">APJ Abdul Kalam Technical University · India</div>
+        <p>
+          Foundation in algorithms, data structures, operating systems, and
+          software engineering. First-class honours.
+        </p>
+      </div>
+
     </div>
+  </section>
 
-    <div class="card">
-        <h3>Bachelor of Engineering</h3>
-        <p>Electronics and Communication Engineering</p>
+  <!-- OUTSIDE WORK -->
+  <section id="outside">
+    <p class="section-label">// outside the terminal</p>
+    <h2>Life Beyond the Keyboard</h2>
+    <p style="margin-bottom: 1.6rem;">
+      I believe the skills that make a great engineer — patience under uncertainty,
+      systematic problem-solving, reading conditions carefully — are the same ones
+      that keep you alive in the mountains. The outdoors keeps me honest.
+    </p>
+
+    <div class="hobby-grid">
+
+      <div class="hobby-card">
+        <!-- Replace with your actual mountaineering photo -->
+        <img src="trekking.jpeg" alt="Mountaineering" />
+        <div class="hobby-img-placeholder">
+          <span class="icon">⛰️</span>
+          <span class="hint">trekking.jpeg</span>
+        </div>
+        <div class="hobby-label">
+          <h3>Mountaineering</h3>
+          <p>High-altitude ascents, technical terrain, and the silence above the clouds.</p>
+        </div>
+      </div>
+
+      <div class="hobby-card">
+        <!-- Replace with your actual trekking photo -->
+        <img src="wildatlantinc.jpeg" alt="Trekking" />
+        <div class="hobby-img-placeholder">
+          <span class="icon">🥾</span>
+          <span class="hint">wildatlantinc.jpeg</span>
+        </div>
+        <div class="hobby-label">
+          <h3>Trekking</h3>
+          <p>Long-distance trails, wild camping, and the Irish hills closer to home.</p>
+        </div>
+      </div>
+
     </div>
-</section>
+  </section>
 
-<section id="skills" class="container">
-    <h2>Skills</h2>
+</div>
 
-    <div class="skills">
-        <span>Python</span>
-        <span>OpenCV</span>
-        <span>PyTorch</span>
-        <span>TensorFlow</span>
-        <span>Machine Learning</span>
-        <span>Computer Vision</span>
-        <span>Deep Learning</span>
-        <span>Git</span>
-        <span>Docker</span>
-        <span>Linux</span>
-    </div>
-</section>
-
-<section id="contact" class="container">
-    <h2>Contact</h2>
-
-    <p>Email: your.email@example.com</p>
-    <p>GitHub: <a href="https://github.com/abhiLimerick">github.com/abhiLimerick</a></p>
-    <p>LinkedIn: Add your LinkedIn profile link here</p>
-</section>
-
+<!-- FOOTER -->
 <footer>
-    <p>© 2026 Abhishek Pandey</p>
+  <p>© 2026 Abhishek (Abi) Pandey · Built with intent, hosted on GitHub Pages</p>
+  <div class="status">
+    <span class="dot"></span>
+    <p>Open to senior / principal / staff engineer conversations</p>
+  </div>
 </footer>
 
 </body>

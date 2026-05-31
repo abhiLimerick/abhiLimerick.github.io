@@ -11,15 +11,15 @@
   <style>
     /* ───────────────────────────── TOKENS ───────────────────────────── */
     :root {
-      --bg:        #0d1117;
-      --bg2:       #161b22;
-      --bg3:       #1c2330;
-      --line:      #2a3240;
-      --text:      #e6edf3;
-      --muted:     #7d8590;
-      --accent:    #58a6ff;
-      --accent2:   #3fb950;
-      --warm:      #f0883e;
+      --bg:        #f6f8fa;
+      --bg2:       #ffffff;
+      --bg3:       #eef1f5;
+      --line:      #d0d7de;
+      --text:      #1a1f2e;
+      --muted:     #57606a;
+      --accent:    #0969da;
+      --accent2:   #1a7f37;
+      --warm:      #bc4c00;
       --serif:     'DM Serif Display', Georgia, serif;
       --mono:      'DM Mono', 'Courier New', monospace;
       --sans:      'DM Sans', system-ui, sans-serif;
@@ -60,7 +60,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(13, 17, 23, 0.85);
+      background: rgba(246, 248, 250, 0.88);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
@@ -161,9 +161,9 @@
     }
     .btn-primary {
       background: var(--accent);
-      color: #0d1117;
+      color: #ffffff;
     }
-    .btn-primary:hover { background: #79beff; text-decoration: none; }
+    .btn-primary:hover { background: #0860c9; text-decoration: none; }
     .btn-ghost {
       border: 1px solid var(--line);
       color: var(--muted);
@@ -219,7 +219,7 @@
       color: var(--text);
     }
 
-    p { color: #b1bac4; margin-bottom: 0.9rem; }
+    p { color: #404858; margin-bottom: 0.9rem; }
     p:last-child { margin-bottom: 0; }
 
     /* ───────────────────────────── STACK PILLS ────────────────────── */
@@ -261,7 +261,7 @@
       left: 0; top: 7px;
       width: 15px; height: 15px;
       border-radius: 50%;
-      background: var(--bg);
+      background: var(--bg2);
       border: 2px solid var(--accent);
     }
     .tl-item:first-child::before { background: var(--accent); }
@@ -289,7 +289,7 @@
       color: var(--muted);
       margin-left: auto;
     }
-    .tl-desc { color: #b1bac4; font-size: 0.93rem; }
+    .tl-desc { color: #404858; font-size: 0.93rem; }
 
     /* ───────────────────────────── PROJECTS GRID ──────────────────── */
     .projects-grid {
@@ -326,9 +326,9 @@
       font-size: 0.68rem;
       padding: 0.15rem 0.5rem;
       border-radius: 3px;
-      background: rgba(88, 166, 255, 0.1);
+      background: rgba(9, 105, 218, 0.07);
       color: var(--accent);
-      border: 1px solid rgba(88, 166, 255, 0.2);
+      border: 1px solid rgba(9, 105, 218, 0.2);
       margin-bottom: 0.8rem;
     }
 
@@ -416,7 +416,7 @@
     }
     .research-abstract {
       font-size: 0.875rem;
-      color: #8b949e;
+      color: var(--muted);
       line-height: 1.65;
       margin-bottom: 1rem;
     }
@@ -451,8 +451,8 @@
       transition: all 0.2s;
     }
     .res-btn:hover { border-color: var(--accent); color: var(--accent); text-decoration: none; }
-    .res-btn.primary { background: rgba(88,166,255,0.08); border-color: rgba(88,166,255,0.4); color: var(--accent); }
-    .res-btn.primary:hover { background: rgba(88,166,255,0.15); }
+    .res-btn.primary { background: rgba(9,105,218,0.07); border-color: rgba(9,105,218,0.35); color: var(--accent); }
+    .res-btn.primary:hover { background: rgba(9,105,218,0.14); }
 
     .research-stats {
       display: flex;
@@ -589,13 +589,13 @@
       padding-bottom: 0.6rem;
       border-bottom: 1px solid var(--line);
     }
-    .sg-languages  .skill-group-label { color: #f0883e; border-color: rgba(240,136,62,0.3); }
-    .sg-ai         .skill-group-label { color: #58a6ff; border-color: rgba(88,166,255,0.3); }
-    .sg-edge       .skill-group-label { color: #bc8cff; border-color: rgba(188,140,255,0.3); }
-    .sg-cv         .skill-group-label { color: #3fb950; border-color: rgba(63,185,80,0.3); }
-    .sg-backend    .skill-group-label { color: #f0883e; border-color: rgba(240,136,62,0.3); }
-    .sg-devops     .skill-group-label { color: #58a6ff; border-color: rgba(88,166,255,0.3); }
-    .sg-concepts   .skill-group-label { color: #bc8cff; border-color: rgba(188,140,255,0.3); }
+    .sg-languages  .skill-group-label { color: #bc4c00; border-color: rgba(188,76,0,0.25); }
+    .sg-ai         .skill-group-label { color: #0969da; border-color: rgba(9,105,218,0.25); }
+    .sg-edge       .skill-group-label { color: #8250df; border-color: rgba(130,80,223,0.25); }
+    .sg-cv         .skill-group-label { color: #1a7f37; border-color: rgba(26,127,55,0.25); }
+    .sg-backend    .skill-group-label { color: #bc4c00; border-color: rgba(188,76,0,0.25); }
+    .sg-devops     .skill-group-label { color: #0969da; border-color: rgba(9,105,218,0.25); }
+    .sg-concepts   .skill-group-label { color: #8250df; border-color: rgba(130,80,223,0.25); }
 
     .skill-tags {
       display: flex;
@@ -609,7 +609,7 @@
       border-radius: 4px;
       background: var(--bg3);
       border: 1px solid var(--line);
-      color: #b1bac4;
+      color: var(--muted);
       letter-spacing: 0.02em;
       white-space: nowrap;
     }
@@ -648,8 +648,8 @@
   <!-- HERO -->
   <div class="hero" id="about">
     <div class="hero-text">
-      <p class="hero-eyebrow">Senior Software Engineer · Dublin, Ireland</p>
-      <h1>Abi Pandey</h1>
+      <p class="hero-eyebrow">Senior Software Engineer · Limerick, Ireland</p>
+      <h1>Abi</em> Pandey</h1>
       <p class="hero-tagline">
         I build distributed systems that move fast and don't break things —
         event-driven architectures, real-time pipelines, and AI-integrated backends
@@ -682,7 +682,7 @@
 
     <div class="hero-photo">
       <!-- Replace src with your actual photo path -->
-      <img src="profile.jpeg" alt="Abhishek Pandey" />
+      <img src="profile.jpeg" alt="Abi Pandey" />
     </div>
   </div>
 
@@ -1010,9 +1010,9 @@
 
       <!-- ASL GROUP PROJECT -->
       <div class="research-card" style="--card-accent: #bc8cff;">
-        <div class="research-type" style="color:#bc8cff; border-color:#bc8cff;">Group Project</div>
+        <div class="research-type" style="color:#8250df; border-color:#8250df;">Group Project</div>
         <div class="research-body">
-          <p class="research-venue" style="color:#bc8cff;">EE6008 Deep Learning at the Edge &middot; University of Limerick &middot; 2025</p>
+          <p class="research-venue" style="color:#8250df;">EE6008 Deep Learning at the Edge &middot; University of Limerick &middot; 2025</p>
           <div class="research-title">
             ASL Sign Language Recognition on OpenMV using Edge Impulse
           </div>
@@ -1028,24 +1028,24 @@
             embedded ML constraints, and INT8 quantisation for low-power hardware.
           </p>
           <div class="research-links">
-            <a class="res-btn primary" href="https://studio.edgeimpulse.com/public/682063/latest" target="_blank" style="border-color:rgba(188,140,255,0.4); color:#bc8cff; background:rgba(188,140,255,0.08);">&#x2197; Live Edge Impulse Project</a>
+            <a class="res-btn primary" href="https://studio.edgeimpulse.com/public/682063/latest" target="_blank" style="border-color:rgba(130,80,223,0.35); color:#8250df; background:rgba(130,80,223,0.07);">&#x2197; Live Edge Impulse Project</a>
             <a class="res-btn" href="assets/asl-report.pdf" target="_blank">&#x2193; Report PDF</a>
           </div>
           <div class="research-stats">
             <div class="stat-item">
-              <span class="stat-val" style="color:#bc8cff;">84.7%</span>
+              <span class="stat-val" style="color:#8250df;">84.7%</span>
               <span class="stat-label">Test Accuracy</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#bc8cff;">26 Classes</span>
+              <span class="stat-val" style="color:#8250df;">26 Classes</span>
               <span class="stat-label">ASL Alphabet</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#bc8cff;">On-Device</span>
+              <span class="stat-val" style="color:#8250df;">On-Device</span>
               <span class="stat-label">OpenMV Camera</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#bc8cff;">TFLite</span>
+              <span class="stat-val" style="color:#8250df;">TFLite</span>
               <span class="stat-label">INT8 Quantised</span>
             </div>
           </div>
@@ -1057,7 +1057,7 @@
       <div class="research-card" style="--card-accent: #3fb950;">
         <div class="research-type" style="color:#3fb950; border-color:#3fb950;">Module Project</div>
         <div class="research-body">
-          <p class="research-venue" style="color:#3fb950;">CE6023 Computer Vision Systems &middot; University of Limerick &middot; Dec 2024</p>
+          <p class="research-venue" style="color:#1a7f37;">CE6023 Computer Vision Systems &middot; University of Limerick &middot; Dec 2024</p>
           <div class="research-title">
             Object and People Recognition in Real-Time Using Raspberry Pi 4
           </div>
@@ -1074,23 +1074,23 @@
             of confidence and inference-time trends over time.
           </p>
           <div class="research-links">
-            <a class="res-btn primary" href="assets/cv-systems-report.pdf" target="_blank" style="border-color:rgba(63,185,80,0.4); color:#3fb950; background:rgba(63,185,80,0.08);">&#x2193; Download Report</a>
+            <a class="res-btn primary" href="assets/cv-systems-report.pdf" target="_blank" style="border-color:rgba(26,127,55,0.3); color:#1a7f37; background:rgba(26,127,55,0.07);">&#x2193; Download Report</a>
           </div>
           <div class="research-stats">
             <div class="stat-item">
-              <span class="stat-val" style="color:#3fb950;">0.75&ndash;0.85</span>
+              <span class="stat-val" style="color:#1a7f37;">0.75&ndash;0.85</span>
               <span class="stat-label">Detection Confidence</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#3fb950;">TFLite</span>
+              <span class="stat-val" style="color:#1a7f37;">TFLite</span>
               <span class="stat-label">Object Detection</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#3fb950;">Raspberry Pi 4</span>
+              <span class="stat-val" style="color:#1a7f37;">Raspberry Pi 4</span>
               <span class="stat-label">Edge Hardware</span>
             </div>
             <div class="stat-item">
-              <span class="stat-val" style="color:#3fb950;">3 Conditions</span>
+              <span class="stat-val" style="color:#1a7f37;">3 Conditions</span>
               <span class="stat-label">Lighting Scenarios</span>
             </div>
           </div>
@@ -1146,8 +1146,6 @@
         <!-- Replace with your actual mountaineering photo -->
         <img src="trekking.jpeg" alt="Mountaineering" />
         <div class="hobby-img-placeholder">
-          <span class="icon">⛰️</span>
-          <span class="hint">trekking.jpeg</span>
         </div>
         <div class="hobby-label">
           <h3>Mountaineering</h3>
@@ -1159,8 +1157,6 @@
         <!-- Replace with your actual trekking photo -->
         <img src="wildatlantinc.jpeg" alt="Trekking" />
         <div class="hobby-img-placeholder">
-          <span class="icon">🥾</span>
-          <span class="hint">wildatlantinc.jpeg</span>
         </div>
         <div class="hobby-label">
           <h3>Trekking</h3>
